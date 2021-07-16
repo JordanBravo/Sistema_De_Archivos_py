@@ -1,0 +1,17 @@
+Id: 1
+Nombre: 
+Apellido paterno: 
+Apellido materno: C
+Edad: 
+
+Id: 100
+Nombre: Bibiana
+Apellido paterno: Contrearas 
+Apellido materno: Paisano
+Edad: 19
+
+Id: 10
+Nombre: Jordan
+Apellido paterno: Pérez
+Apellido materno: Bravo
+Edad: 21
