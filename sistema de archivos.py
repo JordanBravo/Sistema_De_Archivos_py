@@ -12,8 +12,7 @@ def selecciona_ruta():
     raiz.destroy() #Queda pendiente           
     return ruta
 
-def metodo(mi_ruta):
-   # mi_ruta=open(mi_ruta2,"r", encoding="utf-8")
+def metodo(mi_ruta):   
     
     while True:
         print("\n-OPCIONES DISPONIBLES- \n1.-Insertar \n2.-Modificar \n3.-Eliminar \n4.-Localizar y mostrar un registro\n5.-Calcular promedio de edades\n6.-Ver un ASCCI ART\n7.-Salir")
@@ -29,20 +28,14 @@ def metodo(mi_ruta):
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()
             
+            #Cuento el número de ID registradas para poder saber si sobre pasa el número permitido (10)
             for j in range(len(mi_lista)):
                 if mi_lista[j][0:4]==("Id: "):
-                    contador+=1
-            
-
-            #if contador<10:            
-            #print(archivo.read())
-            #ruta= "C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt"
-            #archivo=open(ruta, 'r')
-            #ite=0
+                    contador+=1            
             
             if os.stat(mi_ruta).st_size == 0: #Determino si esta vacío mi .txt                           
                     
-                    ruta0= 'C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt'
+                    
                     archivo0=open(mi_ruta, 'w')
 
                     id_alumno=input("Ingrese id del alumno: ")
@@ -60,22 +53,23 @@ def metodo(mi_ruta):
                     edad= input("Ingrese edad del alumno: ")
                     archivo0.write("Edad: "+edad)
 
-                    print("Alumno registrado correctamente")
-                    #archivo.close()
+                    print("\n******* Alumno registrado correctamente *******")
+                    
                     archivo0.close()
 
-            elif  os.stat(mi_ruta).st_size != 0:
-                    #ruta2= 'C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt'
+            elif  os.stat(mi_ruta).st_size != 0: #Evaluo si mi archivo no esta vacio
+                    
                     archivo2=open(mi_ruta, 'a')
                     ite=0
                     
-
                     id_alumno=input("Ingrese id del alumno: ")
-                    #print(mi_lista)
+                    
+                    #Cuento si se repite la ID
                     for j in range(len(mi_lista)):
                         if mi_lista[j]==("Id: "+id_alumno+"\n"):                        
                             ite+=1                                            
-                    
+
+                    #Evaluo si la ID no existe
                     if ite==0:                   
                         archivo2.write("\n\nId: "+id_alumno+"\n")
 
@@ -91,12 +85,15 @@ def metodo(mi_ruta):
                         edad= input("Ingrese edad del alumno: ")
                         archivo2.write("Edad: "+edad)
                         
-                        print("Alumno registrado correctamente")
+                        print("\n******* Alumno registrado correctamente *******")
+
+                    #Si no existe la ID, mandara mensaje de que ya existe la ID                        
                     else:
-                        print("Id ya registrada")                 
-                    
-                    #archivo.close()
+                        print("\n******* Id ya registrada *******")                 
+                                        
                     archivo2.close()
+            
+            #Evalua si sobrepaso el número de ID permitidos        
             elif contador>=10:
                 print("Se supero el número máximo de alumnos registrados (10)")        
     
