@@ -12,24 +12,7 @@ Edad: 19
 
 Id: 10
 Nombre: Jordan
-Apellido paterno: Pérez
+Apellido paterno: Pï¿½rez
 Apellido materno: Bravo
 Edad: 21
 
-Id: 50
-Nombre: Aurora
-Apellido paterno: Valencia
-Apellido materno: Bernal
-Edad: 20
-
-Id: 500
-Nombre: 
-Apellido paterno: 
-Apellido materno: 
-Edad: 
-
-Id: 
-Nombre: 
-Apellido paterno: 
-Apellido materno: 
-Edad: 

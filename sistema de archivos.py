@@ -102,7 +102,7 @@ def metodo(mi_ruta):
         if opcion==2:
 
             mi_archivo=open(mi_ruta)
-            mi_lista= mi_archivo.readlines() #Archivo convertido en lista                t
+            mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()        
             ite=0
             cuen=0
@@ -154,7 +154,7 @@ def metodo(mi_ruta):
 
     #Opción 3          
         if opcion==3:
-            mi_archivo=open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+            mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()        
             
@@ -178,7 +178,7 @@ def metodo(mi_ruta):
                     mi_lista[i+3]=""
                     mi_lista[i+4]=""                
                                     
-                    mi_archivo = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt", "w")
+                    mi_archivo = open(mi_ruta, "w")
                     new_file_contents="".join(mi_lista)
                     
                     mi_archivo.write(new_file_contents)
@@ -187,7 +187,7 @@ def metodo(mi_ruta):
                     #Hasta aquí
                     readable_file = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
                     read_file = readable_file.read()                
-                    print(mi_lista)
+                    #print(mi_lista)
 
                     print("Archivo eliminado satisfactoriamente")
                     mi_archivo.close()
