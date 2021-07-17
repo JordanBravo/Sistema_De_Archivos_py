@@ -100,7 +100,8 @@ def metodo(mi_ruta):
      
     #Opción 2
         if opcion==2:
-            mi_archivo=open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+
+            mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista                t
             mi_archivo.close()        
             ite=0
@@ -133,7 +134,7 @@ def metodo(mi_ruta):
                         mi_lista[i+4]="Edad: "+nueva_edad+"\n"
                         print("Archivo modificado satisfactoriamente")
                         
-                        mi_archivo = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt", "w")
+                        mi_archivo = open(mi_ruta, "w")
                         new_file_contents="".join(mi_lista)
                         
                         mi_archivo.write(new_file_contents)

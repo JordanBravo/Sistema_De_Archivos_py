@@ -1,8 +1,8 @@
 Id: 1
-Nombre: 
-Apellido paterno: 
-Apellido materno: C
-Edad: 
+Nombre: Tyler
+Apellido paterno: Robert
+Apellido materno: Joseph
+Edad: 37
 
 Id: 100
 Nombre: Bibiana
