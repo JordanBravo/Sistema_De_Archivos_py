@@ -26,9 +26,6 @@ def selecciona_ruta():
             print("\nSeleccione un archivo de tipo texto, intentelo nuevamente")        
             
 
-
-
-
 def metodo(mi_ruta):   
     
     while True:
