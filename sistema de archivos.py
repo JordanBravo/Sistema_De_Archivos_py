@@ -1,4 +1,5 @@
 import os
+import pyautogui
 import tkinter
 from tkinter import filedialog
 
@@ -141,7 +142,7 @@ def metodo(mi_ruta):
                         mi_archivo.close
 
                         #Hasta aquí
-                        readable_file = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+                        readable_file = open(mi_ruta)
                         read_file = readable_file.read()                                                
                         mi_archivo.close() 
                         
@@ -158,44 +159,75 @@ def metodo(mi_ruta):
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()        
             
-            cuen=0
+            cuen=0 #Cuenta cuantas ID hay en el archivo(txt)
             c=0    
+
+            busca_id=input("Ingrese el ID por ELIMINAR: ")
 
             for j in range(len(mi_lista)):                    
                 if mi_lista[j][0:4]=="Id: ":
                     cuen+=1
-            
-            busca_id=input("Ingrese el ID por ELIMINAR: ")            
-            
+
             for i in range(len(mi_lista)):
                 if mi_lista[i]==("Id: "+busca_id+"\n") or mi_lista[i]==("Id: "+busca_id):
                     c+=1                     
-                    print("Sí  encontro ID")                                
+                    print("Sí  encontro ID")                                             
+                    
                     mi_lista[i-1]=""
                     mi_lista[i]=""
                     mi_lista[i+1]=""
                     mi_lista[i+2]=""
                     mi_lista[i+3]=""
-                    mi_lista[i+4]=""                
-                                    
-                    mi_archivo = open(mi_ruta, "w")
-                    new_file_contents="".join(mi_lista)
+                    mi_lista[i+4]=""                                                                                  
                     
-                    mi_archivo.write(new_file_contents)
-                    mi_archivo.close
+                    mi_archivo = open(mi_ruta, "w")                    
+                    new_file_contents="".join(mi_lista)                    
+                    mi_archivo.write(new_file_contents)                                        
 
                     #Hasta aquí
-                    readable_file = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
-                    read_file = readable_file.read()                
-                    #print(mi_lista)
-
-                    print("Archivo eliminado satisfactoriamente")
-                    mi_archivo.close()
+                    readable_file = open(mi_ruta)
+                    read_file = readable_file.read()                                                        
                     
-                
-            if cuen!=c:
-                print("No se encontro alumno con esa Id")
-                mi_archivo.close()                
+                    print("\n******* Archivo eliminado satisfactoriamente *******")
+                    mi_archivo.close()
+
+
+                    #------------Aqui voy a hacer limpieza de residuos de lineas------------
+                    mi_archivo2=open(mi_ruta)
+                    mi_lista2= mi_archivo2.readlines() #Archivo convertido en lista
+                    mi_archivo2.close()
+                    print(mi_lista2)                    
+                                        
+                    poscicion=0
+                    while poscicion<len(mi_lista2):                        
+                            if str(mi_lista2[poscicion][-1:-2])==("\n") and str(mi_lista2[poscicion+1])=="\n":
+                                mi_lista2.pop(poscicion+1)                                
+                                poscicion+=1                                                        
+                            else:
+                                poscicion+=1
+
+                    
+                    if mi_lista2[-1][0:6]=="Edad: " or mi_lista2[-1]=="\n":  
+                        print("S{i")
+                        almacen="".join(mi_lista2[-1])
+                        almacen=almacen.rstrip()
+                        print(almacen)  
+                        mi_lista2[-1]=almacen
+                    
+                    mi_archivo = open(mi_ruta, "w")                    
+                    new_file_contents="".join(mi_lista2)
+                    
+                    mi_archivo.write(new_file_contents)                                        
+
+                    #Hasta aquí
+                    readable_file = open(mi_ruta)
+                    read_file = readable_file.read()
+                    mi_archivo.close()
+                    print(mi_lista2)  
+                    
+            if c==0:
+                print("\n******* No se encontro alumno con esa Id *******")
+                mi_archivo.close()                                      
         
     #Opción 4
         if opcion==4:
