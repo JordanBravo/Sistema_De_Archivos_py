@@ -1,17 +1,33 @@
 import os
-import pyautogui
+import os.path
 import tkinter
 from tkinter import filedialog
 
 
 def selecciona_ruta():
-    raiz= tkinter.Tk()
-    raiz.title("Explorando archivos.")
-    raiz.iconify() # Oculto la ventana
-    
-    ruta=filedialog.askopenfilename() #Obtengo la ruta seleccionada
-    raiz.destroy() #Queda pendiente           
-    return ruta
+    while True:
+        raiz= tkinter.Tk()
+        raiz.title("Explorando archivos.")
+        raiz.iconify() # Oculto la ventana
+            
+        ruta=filedialog.askopenfilename() #Obtengo la ruta seleccionada
+        raiz.destroy() #Queda pendiente   
+        
+        ubicacion, extension=os.path.splitext(ruta)
+        #nombre_archivo=os.path.basename(ruta)
+        nombre_archivo= os.path.splitext(os.path.basename(ruta))[0] #?
+
+        if extension==".txt":
+            print("\nRuta del archivo seleccionado: {}\nNombre del archivo: {}\nExtensión del archivo: {}".format(ubicacion, nombre_archivo, extension))                    
+            return ruta
+            break
+            
+        else:
+            print("\nSeleccione un archivo de tipo texto, intentelo nuevamente")        
+            
+
+
+
 
 def metodo(mi_ruta):   
     
@@ -97,10 +113,9 @@ def metodo(mi_ruta):
             #Evalua si sobrepaso el número de ID permitidos        
             elif contador>=10:
                 print("Se supero el número máximo de alumnos registrados (10)")        
-    
-     
+         
     #Opción 2
-        if opcion==2:
+        elif opcion==2:
 
             mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
@@ -154,7 +169,7 @@ def metodo(mi_ruta):
                 mi_archivo.close()        
 
     #Opción 3          
-        if opcion==3:
+        elif opcion==3:
             mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()        
@@ -230,7 +245,7 @@ def metodo(mi_ruta):
                 mi_archivo.close()                                      
         
     #Opción 4
-        if opcion==4:
+        elif opcion==4:
             mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()
@@ -260,8 +275,8 @@ def metodo(mi_ruta):
                 mi_archivo.close()  
 
     #Opción 5
-        if opcion==5:
-                        
+        elif opcion==5:
+
             archivo=open(mi_ruta, 'r+')
             con=0
 
@@ -292,7 +307,7 @@ def metodo(mi_ruta):
                 archivo.close()                       
         
     #Opción 6
-        if opcion==6:        
+        elif opcion==6:        
             print("")
             print("         _nnnn_                      ")
             print("        dGGGGMMb     ,"""""""""""""".")
@@ -312,9 +327,11 @@ def metodo(mi_ruta):
             print("     `-'       `--' hjm")
  
     #Opción 7
-        if opcion==7:
+        elif opcion==7:
             break                             
+    #Else
+        else:
+            print("\nOpción no disponible, intente nuevamente con una de las opciones del menú")
     
 la_ruta=selecciona_ruta()
 metodo(la_ruta)
-
