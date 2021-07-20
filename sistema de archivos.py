@@ -231,32 +231,33 @@ def metodo(mi_ruta):
         
     #Opción 4
         if opcion==4:
-            mi_archivo=open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+            mi_archivo=open(mi_ruta)
             mi_lista= mi_archivo.readlines() #Archivo convertido en lista
             mi_archivo.close()
-            print(mi_lista)
-            ubicacion=0
+            #print(mi_lista)            
+            estado=False
             
-            busca_id=input("Ingrese el ID por BUSCAR: ")            
-            
+            busca_id=input("Ingrese el ID por BUSCAR: ")                                  
+
             for i in range(len(mi_lista)):
                 if mi_lista[i]==("Id: "+busca_id+"\n") or mi_lista[i]==("Id: "+busca_id):                     
-                    print("Sí  encontro ID")
+                    print("\nSí  encontro ID\n")
 
-                    print(mi_lista[i])
-                    print(mi_lista[i+1])
-                    print(mi_lista[i+2])
-                    print(mi_lista[i+3])
-                    print(mi_lista[i+4])                                 
-                    
+                    print(mi_lista[i].rstrip())
+                    print(mi_lista[i+1].rstrip())
+                    print(mi_lista[i+2].rstrip())
+                    print(mi_lista[i+3].rstrip())
+                    print(mi_lista[i+4].rstrip())                                 
+                    estado=True                    
+
                     #Hasta aquí
-                    readable_file = open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+                    readable_file = open(mi_ruta)
                     read_file = readable_file.read()                                
-                    mi_archivo.close()                            
-                #else:
-                #   print("No se encontro alumno con esa Id")
-                #ubicacion+=1
-                #mi_archivo.close()  
+                    mi_archivo.close()                                            
+
+            if estado==False:
+                print("\nNo se encontro alumno con esa Id")                
+                mi_archivo.close()  
 
     #Opción 5
         if opcion==5:

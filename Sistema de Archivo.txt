@@ -33,3 +33,9 @@ Nombre:
 Apellido paterno: 
 Apellido materno: 
 Edad: 10000
+
+Id: 10000
+Nombre: 
+Apellido paterno: 
+Apellido materno: 
+Edad: 100
