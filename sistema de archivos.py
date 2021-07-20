@@ -261,29 +261,30 @@ def metodo(mi_ruta):
 
     #Opción 5
         if opcion==5:
-            ruta='C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt'
-            archivo=open(ruta, 'r+')
+                        
+            archivo=open(mi_ruta, 'r+')
             con=0
 
             #Archivo vacío        
-            if os.stat("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt").st_size == 0:
+            if os.stat(mi_ruta).st_size == 0:
                 print("El archivo esta vacío, no se pueden modificar datos")
             
             #Archivo diferente de vacío
             else:            
-                mi_archivo=open("C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt")
+                mi_archivo=open(mi_ruta)
                 mi_lista= mi_archivo.readlines() #Archivo convertido en lista                t
-                mi_archivo.close()
-                print(mi_lista)            
-                #ruta= 'C:/Users/Jordan/Documents/ITP/4to/Sistemas Operartivos/Unidad 5/miarchivo.txt'
-                #archivo=open(ruta, 'w')
-                                        
+                mi_archivo.close()                                      
+                
                 edad=0
                 div=0
+                edad_guardada=""
+                
                 for i in range(len(mi_lista)):
                     if mi_lista[i][0:6]==("Edad: "):
                         div+=1
-                        edad+=float(mi_lista[i][5:8])
+                        edad_guardada="".join(mi_lista[i][5:])
+                        #edad_guardada=edad_guardada.rstrip()                        
+                        edad+=float(edad_guardada.rstrip())
                 
                 #print(mi_lista[4][5:])            
                 promedio=+edad/div

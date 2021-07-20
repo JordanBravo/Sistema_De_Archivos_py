@@ -20,22 +20,22 @@ Id: 107
 Nombre: 
 Apellido paterno: 
 Apellido materno: 
-Edad: 10000
+Edad: 10
 
 Id: 108
 Nombre: 
 Apellido paterno: 
 Apellido materno: 
-Edad: 10000
+Edad: 10
 
 Id: 109
 Nombre: 
 Apellido paterno: 
 Apellido materno: 
-Edad: 10000
+Edad: 10
 
 Id: 10000
 Nombre: 
 Apellido paterno: 
 Apellido materno: 
-Edad: 100
+Edad: 10
